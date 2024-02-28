@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script.js"></script>
+</head>
+<body>
+  <div class="row1">
+    <div class="column1" style="background-color:#aaa;">
+      <div >
+        <div class="logo">
+          <img  src="Group_780.png" >
+          <h1 class="text">CodeSquid</h1>
+        </div>
+        <div class="ill">
+          <img   src="Illustration.jpg">
+        </div> 
+        <br> 
+        <h1 class="online" >Online Community for <br>Frontend developers</h1>
+        <p class="para">Lorem ipsum dolor sit amet, consectetur adipiscing<br> elit, sed do eiusmod tempor incididun.</p>
+      </div>
+    </div>
+    <div class="column2">
+      <div class="fun">
+        <h2 class="join">Join & Connect the Fastest <br>Growing Online Community</h2>
+          <div class="row">
+            <div class="columnsecond" >
+              <img style="width: 25px; height: 20px;" class="google" src="icons8-google-48.png">
+              <button class="btn1">Sign up with Google</button>
+            </div>
+            <div class="columnsec" >
+              <img src="icons8-github-50.png" style="width: 25px; height: 20px;" class="github">
+              <button class="btn2">Sign up with Github</button>
+            </div>
+          </div>
+         <br> 
+         <form id="myForm" class="formStyle"  onsubmit="return validateForm()"action="login.html" >
+            <div >
+              <label style="color: rgba(117, 117, 117, 1);" >username</label> 
+              <input type="text" name="uname" id="username">
+            </div>
+            
+            <div>
+              <label style="color: rgba(117, 117, 117, 1);"for="lname">Password</label>
+             <input type="password" style="color: rgba(117, 117, 117, 1);" name="pass" id="password">   
+         </div>
+       
+         <div>
+          <label style="color: rgba(117, 117, 117, 1);">Confirm password</label>
+         <input type="password" style="color: rgba(117, 117, 117, 1);" name="cpass" id="cpassword">   
+     </div>
+  
+            
+            <div>
+                <label style="color: rgba(117, 117, 117, 1);">Email</label>
+                <input type="text" name="email" id="emailid">
+              </div>
+              
+              <div>
+                <label style="color: rgba(117, 117, 117, 1);"for="lname">Address</label>
+               <input type="text" style="color: rgba(117, 117, 117, 1);" name="address" id="addressid">   
+           </div>
+          
+           <div>
+            <label style="color: rgba(117, 117, 117, 1);"for="lname">Phone number</label>
+           <input type="text" style="color: rgba(117, 117, 117, 1);"name="phone" id="phoneid" >   
+       </div>
+      
+            <div class="flex-container">
+              <div class="terms2">
+                <input type="checkbox" autocomplete="off" name="check" id="check">
+                <label class="terms">I accept the terms and Conditions</label>
+              </div>
+              <div >
+                <input type="submit" class="success" value="Sign Up" onclick="test()">
+              </div>
+            </div>
+            
+          </form>    
+      </div>
+    
+    <br>
+      <div>
+        <p class="own">Own an Account?<a class="jump"href="#">JUMP RIGHT IN</a></p>
+      </div>
+      <div class="floating">
+        <img src="CHAT.png">
+      </div>
+    </div>
+  </div>
+  <script>
+    function validateForm() {
+    let user = document.forms["myForm"]["uname"].value;
+    let pass = document.forms["myForm"]["pass"].value;
+    let cpass = document.forms["myForm"]["cpass"].value;
+    let email = document.forms["myForm"]["email"].value;
+    let address = document.forms["myForm"]["address"].value;
+    let phone = document.forms["myForm"]["phone"].value;
+    //let check = document.forms["myForm"]["check"].value;
+
+    if (user == "") {
+      alert("Name must be filled out");
+      return false;
+    }
+    let usernameRegex = /^[^\d\s..~!@#$%^&*()_+={}[\]:;<>,.?]/;
+
+if (!usernameRegex.test(user)) {
+  alert('Username should not start with a number, a space, a dot, or contain special characters.');
+  return false; // Prevent form submission
+}
+      
+
+if (pass == "") {
+      alert("Password must be filled out");
+      return false;
+    }
+    let passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{9,}$/;
+      if (!passwordRegex.test(pass)) {
+        alert('Password should be at least 9 characters long and include one capital letter, one number, and one special character.');
+        return false; // Prevent form submission
+      }
+    if (cpass == "") {
+      alert("Password must be filled out");
+      return false;
+    }
+    if (pass !== cpass) {
+        alert("Passwords do not match");
+        return false;
+      }
+    if (email == "") {
+      alert("email must be filled out");
+      return false;
+    }
+    
+    if(!email.includes("@")||!email.includes(".com"))
+    { 
+      alert("Email must be valid")
+      return false;
+
+    }
+    if (address == "") {
+      alert("Address must be filled out");
+      return false;
+    } 
+    if (phone == "") {
+      alert("Phone number must be filled out");
+      return false;
+    }
+    if (phone.length<10||phone.length>10) {
+      alert("Phone number must be valid");
+      return false;
+    }
+    var checkbox = document.getElementById('check');
+
+      if (checkbox.checked) {
+        
+        return true; 
+      } else {
+        alert('Please click the checkbox to proceed.');
+        return false; 
+      }
+    
+    
+    return true;
+  }
+  </script>
+</body>
+</html>
